@@ -1,4 +1,3 @@
-import clientes.Fisico;
 import exceptions.ProdInsuficiente;
 import produto.Produto;
 
@@ -14,7 +13,7 @@ public class Main {
         prod1.imprimir();
         //prod1.editarProd();
         try {
-            prod1.realizarCompra(11);
+            prod1.efetuarCompra(11);
         }catch (ProdInsuficiente e){
             System.out.println(e.getMessage());
             System.out.println("-----------------------");

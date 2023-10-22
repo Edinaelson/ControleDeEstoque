@@ -58,7 +58,7 @@ public class Produto {
         System.out.println("------------------------------------");
     }
 
-    public void realizarCompra(int quant) throws Exception{
+    public void efetuarCompra(int quant) throws Exception{
         System.out.println("quantidade: " + getQuantidade());
         System.out.println("quantidade requisitada: " + quant);
 
@@ -67,7 +67,7 @@ public class Produto {
         }
     }
 
-    public void editarProd(){
+    public void editarProduto(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Editar produto");
         System.out.println("1 - Nome, 2- Codigo, 3- Quantidade, 4- Preço");
