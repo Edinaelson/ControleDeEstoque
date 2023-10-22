@@ -1,5 +1,7 @@
 package produto;
 
+import java.util.Scanner;
+
 public class Produto {
     public static String nome;
     public static int codigo;
@@ -38,6 +40,62 @@ public class Produto {
         Produto.preco = preco;
     }
 
-    public Produto() {
+    public Produto(String nome,int codigo, int quantidade, double preco) {
+        setNome(nome);
+        setCodigo(codigo);
+        setQuantidade(quantidade);
+        setPreco(preco);
     }
+
+    public void imprimir(){
+        System.out.println("------------------------------------");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Codigo: " +getCodigo());
+        System.out.println("Quantidade " + getQuantidade());
+        System.out.println("preco "+ getPreco());
+        System.out.println("------------------------------------");
+    }
+
+    public void realizarCompra(int quant){
+        if(quant > getQuantidade()){
+            System.out.println("quantidade maior que estoque");
+        }
+        System.out.println("quantidade: " + getQuantidade());
+        System.out.println("quantidade requisitada: " + quant);
+    }
+
+    public void editarProd(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Editar produto");
+        System.out.println("1 - Nome, 2- Codigo, 3- Quantidade, 4- Preço");
+        int escolha = scanner.nextInt();
+        switch (escolha){
+            case 1:{
+                System.out.println("Novo Nome");
+                String name = scanner.next();
+                setNome(name);
+                break;
+            }
+            case 2: {
+                System.out.println("Novo Codigo: ");
+                int cod = scanner.nextInt();
+                setCodigo(cod);
+                break;
+            }
+            case 3: {
+                System.out.println("Nova quantidade: ");
+                int quant = scanner.nextInt();
+                setQuantidade(quant);
+                break;
+            }
+            case 4:{
+                System.out.println("Novo Preço");
+                double p = scanner.nextDouble();
+                setPreco(p);
+                break;
+            }
+        }
+        scanner.close();
+    }
+
 }
