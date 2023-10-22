@@ -1,5 +1,7 @@
 package produto;
 
+import exceptions.ProdInsuficiente;
+
 import java.util.Scanner;
 
 public class Produto {
@@ -56,12 +58,13 @@ public class Produto {
         System.out.println("------------------------------------");
     }
 
-    public void realizarCompra(int quant){
-        if(quant > getQuantidade()){
-            System.out.println("quantidade maior que estoque");
-        }
+    public void realizarCompra(int quant) throws Exception{
         System.out.println("quantidade: " + getQuantidade());
         System.out.println("quantidade requisitada: " + quant);
+
+        if(quant > getQuantidade()){
+            throw new ProdInsuficiente();
+        }
     }
 
     public void editarProd(){
