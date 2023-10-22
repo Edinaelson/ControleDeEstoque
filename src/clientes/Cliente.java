@@ -7,7 +7,7 @@ public class Cliente {
 
     public static int tipo; //1 pessoa fisica 2 juridico
 
-    public static int getTipo() {
+    public int getTipo() {
         return tipo;
     }
 

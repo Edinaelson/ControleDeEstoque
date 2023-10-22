@@ -1,3 +1,5 @@
+import clientes.Cliente;
+import clientes.Fisico;
 import exceptions.ProdInsuficiente;
 import produto.Produto;
 
@@ -9,16 +11,17 @@ public class Main {
 //        f.imprimir();
 //        f.tipo();
 
-        Produto prod1 = new Produto("Prego",123,10,20.77);
-        prod1.imprimir();
-        //prod1.editarProd();
-        try {
-            prod1.efetuarCompra(11);
-        }catch (ProdInsuficiente e){
-            System.out.println(e.getMessage());
-            System.out.println("-----------------------");
-        }
+//        Produto prod1 = new Produto("Prego",123,10,20.77);
+//        prod1.imprimir();
+//        //prod1.editarProd();
+//        try {
+//            prod1.efetuarCompra(11);
+//        }catch (ProdInsuficiente e){
+//            System.out.println(e.getMessage());
+//            System.out.println("-----------------------");
+//        }
+//
+//        prod1.imprimir();
 
-        prod1.imprimir();
     }
 }
