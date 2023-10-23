@@ -109,30 +109,4 @@ public class Produto {
         }
         scanner.close();
     }
-
-    public Cliente  cadastrarCliente(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Cadastrar Cliente");
-        System.out.println("Nome: ");
-        String nome = scanner.next();
-        System.out.println("1-Pessoa Física | 2- Pessoa Jurídica");
-        int tipo = scanner.nextInt();
-        System.out.println("Informe documento: ");
-        String documento = scanner.next();
-        if(tipo == 1){
-            Fisico fisico = new Fisico(nome,documento,tipo);
-            return fisico;
-        }
-        if (tipo == 2){
-            Juridico juridico = new Juridico(nome,documento,tipo);
-            return juridico;
-        }
-        scanner.close();
-        return null;
-    }
-
-    public void imprimirCliente(){
-
-    }
-
 }
