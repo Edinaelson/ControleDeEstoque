@@ -1,7 +1,9 @@
 package clientes;
 
+import java.util.ArrayList;
+
 public class Cliente {
-    public static String nome;
+    private String nome;
     public static String cnpj;
     public static String cpf;
 
@@ -15,8 +17,8 @@ public class Cliente {
         Cliente.tipo = tipo;
     }
 
-    public static void setNome(String nome) {
-        Cliente.nome = nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public static void setCnpj(String cnpj) {
@@ -27,7 +29,7 @@ public class Cliente {
         Cliente.cpf = cpf;
     }
 
-    public static String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -39,16 +41,31 @@ public class Cliente {
         return cpf;
     }
 
-    public Cliente(String nome, String cnpj, int tipo) {
+    public static ArrayList<Cliente> clientes = new ArrayList<>();
+
+    public Cliente(String nome, String documento, int tipo) {
         setNome(nome);
-        setCnpj(cnpj);
+        setCnpj(documento);
         setTipo(tipo);
     }
 
-    public void Cliente(String nome, String cpf, int tipo){
-        setNome(nome);
-        setCpf(cpf);
-        setTipo(tipo);
+    public static void cadastrar(Cliente cliente){
+        clientes.add(cliente);
+    }
+    
+    static int i;
+    public static void listarClientes(){
+        int n = clientes.size();
+        if (n > 0){
+            for(i = 0; i < n;i++){
+                System.out.println("nome: " + clientes.get(i).getNome());
+                //System.out.println(i);
+                //System.out.println("tipo: " + clientes.get(i).getTipo());
+            }
+        }
+        if(n == 0){
+            System.out.println("Clientes não cadastrados");
+        }
     }
 
     public void imprimir(){
