@@ -49,7 +49,7 @@ public class Cliente {
         setTipo(tipo);
     }
 
-    public static void cadastrar(Cliente cliente){
+    public static void cadastrarCliente(Cliente cliente){
         clientes.add(cliente);
     }
     
@@ -68,10 +68,9 @@ public class Cliente {
         }
     }
 
-    public void imprimir(){
-        System.out.println(getNome());
-        System.out.println(getCnpj());
-        System.out.println(getTipo());
+    //TODO criar algum metodo para identificar usuario se é cpf ou cnpj
+    public int identificarDocumento(String documento){
+        
+        return -1;
     }
-
 }

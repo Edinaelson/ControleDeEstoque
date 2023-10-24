@@ -1,7 +1,4 @@
 import clientes.Cliente;
-import clientes.Fisico;
-import exceptions.ProdInsuficiente;
-import produto.Produto;
 
 public class Main {
     public static void main(String[] args) throws Exception{
@@ -10,9 +7,9 @@ public class Main {
         Cliente c3 = new Cliente("Ana","2303743385",2);
         //Cliente c4 = new Cliente("Edi","07403744385",2);
 
-        Cliente.cadastrar(c1);
-        Cliente.cadastrar(c2);
-        Cliente.cadastrar(c3);
+        Cliente.cadastrarCliente(c1);
+        Cliente.cadastrarCliente(c2);
+        Cliente.cadastrarCliente(c3);
         //Cliente.cadastrar(c4);
 
         Cliente.listarClientes();
