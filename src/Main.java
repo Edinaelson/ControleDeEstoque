@@ -1,5 +1,7 @@
+import br.com.caelum.stella.tinytype.CPF;
 import exceptions.ProdInsuficiente;
 import produto.Produto;
+import utils.ValidarCPF;
 
 public class Main {
     public static void main(String[] args) throws Exception{
@@ -9,8 +11,8 @@ public class Main {
 //        f.imprimir();
 //        f.tipo();
 
-        Produto prod1 = new Produto("Prego",123,10,20.77);
-        prod1.imprimir();
+//        Produto prod1 = new Produto("Prego",123,10,20.77);
+//        prod1.imprimir();
         //prod1.editarProd();
 //        try {
 //            prod1.efetuarCompra(9);
@@ -18,8 +20,14 @@ public class Main {
 //            System.out.println(e.getMessage());
 //            System.out.println("-----------------------");
 //        }
-        prod1.editarProduto();
+//        prod1.editarProduto();
+//
+//        prod1.imprimir();
 
-        prod1.imprimir();
+//        CPF validar = new CPF("61465581334");
+//        System.out.println("Valido: " + validar.isValido());
+        ValidarCPF v = new ValidarCPF();
+        v.validarCPF("07403743384");
+
     }
 }
