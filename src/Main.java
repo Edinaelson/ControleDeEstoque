@@ -12,12 +12,13 @@ public class Main {
         Produto prod1 = new Produto("Prego",123,10,20.77);
         prod1.imprimir();
         //prod1.editarProd();
-        try {
-            prod1.efetuarCompra(11);
-        }catch (ProdInsuficiente e){
-            System.out.println(e.getMessage());
-            System.out.println("-----------------------");
-        }
+//        try {
+//            prod1.efetuarCompra(9);
+//        }catch (ProdInsuficiente e){
+//            System.out.println(e.getMessage());
+//            System.out.println("-----------------------");
+//        }
+        prod1.editarProduto();
 
         prod1.imprimir();
     }
