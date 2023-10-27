@@ -1,7 +1,12 @@
 package produto;
 
+import clientes.Cliente;
+import clientes.Fisico;
+import clientes.Juridico;
 import exceptions.ProdInsuficiente;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Produto {
@@ -47,6 +52,10 @@ public class Produto {
         setCodigo(codigo);
         setQuantidade(quantidade);
         setPreco(preco);
+    }
+
+    public void Produto(){
+
     }
 
     public void imprimir(){
@@ -100,5 +109,4 @@ public class Produto {
         }
         scanner.close();
     }
-
 }
