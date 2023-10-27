@@ -7,14 +7,14 @@ public class Cliente {
     public static String cnpj;
     public static String cpf;
 
-    public static int tipo; //1 pessoa fisica 2 juridico
+    public  int tipo; //1 pessoa fisica 2 juridico
 
     public int getTipo() {
         return tipo;
     }
 
-    public static void setTipo(int tipo) {
-        Cliente.tipo = tipo;
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
     public void setNome(String nome) {
@@ -69,8 +69,12 @@ public class Cliente {
     }
 
     //TODO criar algum metodo para identificar usuario se é cpf ou cnpj
-    public int identificarDocumento(String documento){
-        
-        return -1;
+    public static void identificarDocumento(int documento){
+        if(documento == 2){
+            System.out.println("Pessoa Juridica");
+        }
+        if (documento == 1){
+            System.out.println("Pessoa Física");
+        }
     }
 }
