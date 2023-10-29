@@ -21,6 +21,8 @@ public class Main {
 
         //TODO criar foreach para listar os clientes com numeração.
         Cliente.listarClientes();
+        Cliente.excluirCliente(c1);
+        Cliente.listarClientes();
         //c1.imprimir();
 //        Fisico f = new Fisico("Edinaelson","07403743385",1);
 //        f.imprimir();
@@ -50,8 +52,8 @@ public class Main {
 //        System.out.println("Valido: " + validar.isValido());
 //        ValidarCPF v = new ValidarCPF();
 //        v.validarCPF("07403743384");
-        Cliente.identificarDocumento(c2.getTipo());
-        System.out.println("Tipo: " + c2.getTipo());
+//        Cliente.identificarDocumento(c2.getTipo());
+//        System.out.println("Tipo: " + c2.getTipo());
 
 //
 //        prod1.imprimir();

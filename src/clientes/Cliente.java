@@ -52,6 +52,10 @@ public class Cliente {
     public static void cadastrarCliente(Cliente cliente){
         clientes.add(cliente);
     }
+
+    public static void excluirCliente(Cliente cliente){
+        clientes.remove(cliente);
+    }
     
     static int i;
     public static void listarClientes(){
