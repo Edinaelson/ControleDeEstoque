@@ -15,11 +15,11 @@ public class Produto {
     public static int quantidade;
     public static double preco;
 
-    public static String getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public static void setNome(String nome) {
+    public void setNome(String nome) {
         Produto.nome = nome;
     }
 
