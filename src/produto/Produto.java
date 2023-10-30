@@ -39,7 +39,7 @@ public class Produto {
         Produto.quantidade = quantidade;
     }
 
-    public static double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
@@ -67,13 +67,15 @@ public class Produto {
         System.out.println("------------------------------------");
     }
 
-    public void efetuarCompra(int quant) throws Exception{
-        System.out.println("quantidade: " + getQuantidade());
+    public static int efetuarCompra(int quant) throws Exception{
         System.out.println("quantidade requisitada: " + quant);
 
         if(quant > getQuantidade()){
             throw new ProdInsuficiente();
         }
+        setQuantidade(getQuantidade() - quant);
+        System.out.println("quantidade: " + getQuantidade());
+        return 1;
     }
 
     public void editarProduto(){

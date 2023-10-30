@@ -32,6 +32,11 @@ public class Main {
         //Testar cadastro de produto
         Produto prod1 = new Produto("Prego",123,10,20.77);
 
+        System.out.println("++++++++++++++++++++++++");
+        c1.comprarProduto(4,prod1.getPreco());
+        System.out.println("++++++++++++++++++++++++");
+
+
         f1.cadastrarProdutosComprados(prod1.getNome());
 
         f1.listarProdutos();

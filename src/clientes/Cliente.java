@@ -120,4 +120,12 @@ public class Cliente {
             System.out.println("Pessoa Física");
         }
     }
+
+    //comprar produto
+    public void comprarProduto(int quant, double valor) throws Exception{
+        if(Produto.efetuarCompra(quant) == 1){
+            setSaldo(getSaldo() - valor);
+        }
+        System.out.println("Novo valor: " + getSaldo());
+    }
 }
