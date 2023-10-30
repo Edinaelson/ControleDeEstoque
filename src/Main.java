@@ -24,10 +24,16 @@ public class Main {
 
         Cliente.listarClientes();
 
+        System.out.println("---------------------------------");
+        Cliente.identificarDocumento(c2.getTipo());
+        System.out.println("---------------------------------");
+
 
         //Testar cadastro de produto
         Produto prod1 = new Produto("Prego",123,10,20.77);
+
         f1.cadastrarProdutosComprados(prod1.getNome());
+
         f1.listarProdutos();
 
         //Cliente.cadastrar(c4);
@@ -36,10 +42,6 @@ public class Main {
 //        Cliente.listarClientes();
 //        Cliente.excluirCliente(c1);
         System.out.println("Saldo: " + c2.getSaldo());
-        //c1.imprimir();
-//        Fisico f = new Fisico("Edinaelson","07403743385",1);
-//        f.imprimir();
-//        f.tipo();
 
 //        Produto prod1 = new Produto("Prego",123,10,20.77);
 //        prod1.imprimir();
@@ -70,6 +72,11 @@ public class Main {
 
 //
 //        prod1.imprimir();
+
+        System.out.println("+++++++++++++++++++++++++++");
+        Fisico f2 = new Fisico("Edi","07403743385",1,2000);
+        System.out.println(f2.getSaldo());
+        System.out.println("+++++++++++++++++++++++++++");
 
 
     }
