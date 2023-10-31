@@ -45,14 +45,6 @@ public class Cliente {
         return nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
     //Listas
     private static ArrayList<Cliente> clientes = new ArrayList<>();
     public static ArrayList<String> produtos = new ArrayList<>();
@@ -64,6 +56,7 @@ public class Cliente {
     int x;
     public void listarProdutos(){
         int n = produtos.size();
+        System.out.println("Produtos adquiridos");
         if (n > 0){
             for(i = 0; i < n;i++){
                 System.out.println(i + " Nome: " + produtos.get(i));
@@ -111,7 +104,6 @@ public class Cliente {
         }
     }
 
-    //TODO criar algum metodo para identificar usuario se é cpf ou cnpj
     public static void identificarDocumento(int documento){
         if(documento == 2){
             System.out.println("Pessoa Juridica");
@@ -123,10 +115,10 @@ public class Cliente {
 
     //comprar produto
     //TODO bug comprar produto metodo static resolver para ficar como codigo de instancia
-//    public void comprarProduto(int quant, double valor) throws Exception{
-//        if(Produto.efetuarCompra(quant) == 1){
-//            setSaldo(getSaldo() - valor);
-//        }
-//        System.out.println("Novo valor: " + getSaldo());
-//    }
+    public int comprarProduto(int quant, double valor,Produto produto){
+        setSaldo(getSaldo() - (valor * quant));
+        System.out.println("Novo valor: " + getSaldo());
+        produto.setQuantidade(produto.getQuantidade() - quant);
+        return 1;
+    }
 }

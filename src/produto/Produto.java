@@ -60,12 +60,9 @@ public class Produto {
 
     public int efetuarCompra(int quant) throws Exception{
         System.out.println("quantidade requisitada: " + quant);
-
         if(quant > getQuantidade()){
             throw new ProdInsuficiente();
         }
-        setQuantidade(getQuantidade() - quant);
-        System.out.println("quantidade: " + getQuantidade());
         return 1;
     }
 
@@ -120,7 +117,7 @@ public class Produto {
             }
         }
         if(n == 0){
-            System.out.println("Clientes não cadastrados");
+            System.out.println("Produtos não cadastrados");
         }
     }
 
