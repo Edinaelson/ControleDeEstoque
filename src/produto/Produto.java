@@ -10,41 +10,41 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Produto {
-    public static String nome;
-    public static int codigo;
-    public static int quantidade;
-    public static double preco;
+    public String nome;
+    public int codigo;
+    public int quantidade;
+    public double preco;
 
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
-        Produto.nome = nome;
+        this.nome = nome;
     }
 
-    public static int getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public static void setCodigo(int codigo) {
-        Produto.codigo = codigo;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public static int getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public static void setQuantidade(int quantidade) {
-        Produto.quantidade = quantidade;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public double getPreco() {
         return preco;
     }
 
-    public static void setPreco(double preco) {
-        Produto.preco = preco;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
     public Produto(String nome,int codigo, int quantidade, double preco) {
@@ -58,16 +58,7 @@ public class Produto {
 
     }
 
-    public void imprimir(){
-        System.out.println("------------------------------------");
-        System.out.println("Nome: " + getNome());
-        System.out.println("Codigo: " +getCodigo());
-        System.out.println("Quantidade " + getQuantidade());
-        System.out.println("preco "+ getPreco());
-        System.out.println("------------------------------------");
-    }
-
-    public static int efetuarCompra(int quant) throws Exception{
+    public int efetuarCompra(int quant) throws Exception{
         System.out.println("quantidade requisitada: " + quant);
 
         if(quant > getQuantidade()){
@@ -111,4 +102,26 @@ public class Produto {
         }
         scanner.close();
     }
+
+    /*
+    Cadastro de produtos
+     */
+    public static ArrayList<Produto> produtos = new ArrayList<>();
+    public static void cadastrarProduto(Produto produto){
+        produtos.add(produto);
+    }
+
+    static int i;
+    public static void listarProdutos(){
+        int n = produtos.size();
+        if (n > 0){
+            for(i = 0; i < n;i++){
+                System.out.println("nome "+ produtos.get(i).getNome()+ ", Preço "+ produtos.get(i).getPreco()+ ", quantidade "+ produtos.get(i).getQuantidade());
+            }
+        }
+        if(n == 0){
+            System.out.println("Clientes não cadastrados");
+        }
+    }
+
 }

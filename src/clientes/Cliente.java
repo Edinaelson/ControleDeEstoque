@@ -122,10 +122,11 @@ public class Cliente {
     }
 
     //comprar produto
-    public void comprarProduto(int quant, double valor) throws Exception{
-        if(Produto.efetuarCompra(quant) == 1){
-            setSaldo(getSaldo() - valor);
-        }
-        System.out.println("Novo valor: " + getSaldo());
-    }
+    //TODO bug comprar produto metodo static resolver para ficar como codigo de instancia
+//    public void comprarProduto(int quant, double valor) throws Exception{
+//        if(Produto.efetuarCompra(quant) == 1){
+//            setSaldo(getSaldo() - valor);
+//        }
+//        System.out.println("Novo valor: " + getSaldo());
+//    }
 }

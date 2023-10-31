@@ -22,31 +22,36 @@ public class Main {
         Cliente.cadastrarCliente(c3);
         Cliente.cadastrarCliente(f1);
 
-        Cliente.listarClientes();
-
-        System.out.println("---------------------------------");
-        Cliente.identificarDocumento(c2.getTipo());
-        System.out.println("---------------------------------");
+//        Cliente.listarClientes();
+//
+//        System.out.println("---------------------------------");
+//        Cliente.identificarDocumento(c2.getTipo());
+//        System.out.println("---------------------------------");
 
 
         //Testar cadastro de produto
         Produto prod1 = new Produto("Prego",123,10,20.77);
+        Produto prod2 = new Produto("celular", 194,5,800.00);
+        Produto.cadastrarProduto(prod1);
+        Produto.cadastrarProduto(prod2);
+        Produto.listarProdutos();
+        //Fim teste Produto.
 
-        System.out.println("++++++++++++++++++++++++");
-        c1.comprarProduto(4,prod1.getPreco());
-        System.out.println("++++++++++++++++++++++++");
+//        System.out.println("++++++++++++++++++++++++");
+//        c1.comprarProduto(4,prod1.getPreco());
+//        System.out.println("++++++++++++++++++++++++");
 
 
-        f1.cadastrarProdutosComprados(prod1.getNome());
+        //f1.cadastrarProdutosComprados(prod1.getNome());
 
-        f1.listarProdutos();
+        //f1.listarProdutos();
 
         //Cliente.cadastrar(c4);
 
         //TODO criar foreach para listar os clientes com numeração.
 //        Cliente.listarClientes();
 //        Cliente.excluirCliente(c1);
-        System.out.println("Saldo: " + c2.getSaldo());
+        //System.out.println("Saldo: " + c2.getSaldo());
 
 //        Produto prod1 = new Produto("Prego",123,10,20.77);
 //        prod1.imprimir();
@@ -78,10 +83,10 @@ public class Main {
 //
 //        prod1.imprimir();
 
-        System.out.println("+++++++++++++++++++++++++++");
-        Fisico f2 = new Fisico("Edi","07403743385",1,2000);
-        System.out.println(f2.getSaldo());
-        System.out.println("+++++++++++++++++++++++++++");
+//        System.out.println("+++++++++++++++++++++++++++");
+//        Fisico f2 = new Fisico("Edi","07403743385",1,2000);
+//        System.out.println(f2.getSaldo());
+//        System.out.println("+++++++++++++++++++++++++++");
 
 
     }

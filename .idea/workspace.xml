@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c04fd22b-d559-4048-a3fc-34276cb1a327" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/clientes/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/clientes/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/produto/Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/produto/Produto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientes/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientes/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/produto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/produto/Produto.java" afterDir="false" />
@@ -39,30 +42,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "comprar",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/ProjetoBreno/ControleDeEstoque",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;comprar&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ProjetoBreno/ControleDeEstoque&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -80,7 +83,10 @@
       <workItem from="1698414028473" duration="1017000" />
       <workItem from="1698542672641" duration="2006000" />
       <workItem from="1698585817794" duration="6940000" />
-      <workItem from="1698665703288" duration="5980000" />
+      <workItem from="1698665703288" duration="6575000" />
+      <workItem from="1698696449317" duration="401000" />
+      <workItem from="1698704588394" duration="2035000" />
+      <workItem from="1698708205396" duration="852000" />
     </task>
     <servers />
   </component>
