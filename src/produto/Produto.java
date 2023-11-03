@@ -68,7 +68,7 @@ public class Produto {
         return 1;
     }
 
-    public void editarProduto(){
+    public static void editarProduto(Produto produto){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Editar produto");
         System.out.println("1 - Nome, 2- Codigo, 3- Quantidade, 4- Preço");
@@ -77,29 +77,29 @@ public class Produto {
             case 1:{
                 System.out.println("Novo Nome");
                 String name = scanner.next();
-                setNome(name);
+                produto.setNome(name);
                 break;
             }
             case 2: {
                 System.out.println("Novo Codigo: ");
                 int cod = scanner.nextInt();
-                setCodigo(cod);
+                produto.setCodigo(cod);
                 break;
             }
             case 3: {
                 System.out.println("Nova quantidade: ");
                 int quant = scanner.nextInt();
-                setQuantidade(quant);
+                produto.setQuantidade(quant);
                 break;
             }
             case 4:{
                 System.out.println("Novo Preço");
                 double p = scanner.nextDouble();
-                setPreco(p);
+                produto.setPreco(p);
                 break;
             }
         }
-        scanner.close();
+        //scanner.close();
     }
 
     /*
@@ -133,5 +133,10 @@ public class Produto {
         return null; // Retorna null se o produto não for encontrado.
     }
 
+    //Excluir produto
+    public static void excluirProduto(Produto produto){
+        produtos.remove(produto);
+        System.out.println("Produto removido!");
+    }
 
 }

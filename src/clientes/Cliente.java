@@ -4,6 +4,7 @@ import produto.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Cliente {
     private String nome;
@@ -109,7 +110,7 @@ public class Cliente {
     static int y;
     public static Cliente cliente(String documento){
         int n = clientes.size();
-        for (int x = 0;y <n; y++ ){
+        for (int x = 0;y <n; y++){
             if (documento.equals(clientes.get(x).cnpj)){
                 return clientes.get(x);
             }
@@ -133,4 +134,44 @@ public class Cliente {
         produto.setQuantidade(produto.getQuantidade() - quant);
         return 1;
     }
+
+    public static void editarCliente(Cliente cliente) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Editar Cliente");
+        System.out.println("1 - Editar Nome");
+        System.out.println("2 - Editar Saldo");
+
+        int escolha = scanner.nextInt();
+
+        switch (escolha) {
+            case 1: {
+                System.out.println("Novo Nome: ");
+                String novoNome = scanner.next();
+                cliente.setNome(novoNome);
+                System.out.println("Nome editado com sucesso.");
+                break;
+            }
+            case 2: {
+                System.out.println("Novo Saldo: ");
+                double novoSaldo = scanner.nextDouble();
+                cliente.setSaldo(novoSaldo);
+                System.out.println("Saldo editado com sucesso.");
+                break;
+            }
+
+            default: {
+                System.out.println("Opção inválida.");
+                break;
+            }
+        }
+
+        //scanner.close();
+    }
+
+    //remover cliente
+    public static void removerCliente(Cliente cliente){
+        clientes.remove(cliente);
+        System.out.println("Cliente removido com sucesso!");
+    }
+
 }

@@ -100,9 +100,6 @@ public class Menu {
                     Cliente.identificarDocumento(cliente.getTipo());
                     System.out.println("Itens comprados: ");
                     cliente.listarProdutos();
-//                    for (String produtoComprado : cliente.produtos) {
-//                        System.out.println(produtoComprado);
-//                    }
 
                     System.out.println("--------------------------------------------");
                     break;
@@ -146,6 +143,65 @@ public class Menu {
                     }
                     System.out.println("--------------------------------------------");
 
+                    break;
+                }
+                case 7:{
+                    System.out.println("Editar Cliente");
+                    System.out.println("Informe o documento do cliente: ");
+                    String documento = scanner.next();
+                    Cliente cliente = Cliente.cliente(documento);
+
+                    if (cliente == null) {
+                        System.out.println("Cliente não encontrado.");
+                        break;
+                    }
+                    Cliente.editarCliente(cliente);
+                    System.out.println("--------------------------------------------");
+                    break;
+                }
+                case 8:{
+                    System.out.println("Editar Produto");
+                    Produto.listarProdutos();
+                    System.out.println("Informe o código do produto: ");
+                    int codigoProduto = scanner.nextInt();
+                    Produto produto = Produto.buscarProduto(codigoProduto);
+
+                    if (produto == null) {
+                        System.out.println("Produto não encontrado.");
+                        break;
+                    }
+                    Produto.editarProduto(produto);
+                    System.out.println("--------------------------------------------");
+                    break;
+                }
+                case 9:{
+                    System.out.println("Ecluir produto");
+                    Produto.listarProdutos();
+                    System.out.println("Informe o código do produto: ");
+                    int codigoProduto = scanner.nextInt();
+                    Produto produto = Produto.buscarProduto(codigoProduto);
+
+                    if (produto == null) {
+                        System.out.println("Produto não encontrado.");
+                        break;
+                    }
+                    Produto.excluirProduto(produto);
+                    System.out.println("--------------------------------------------");
+                    break;
+                }
+                case 10:{
+                    System.out.println("Ecluir cliente");
+                    Cliente.listarClientes();
+                    System.out.println("Informe documento(CPF | CNPJ)");
+                    String documento = scanner.next();
+                    Cliente cliente = Cliente.cliente(documento);
+
+                    if (cliente == null) {
+                        System.out.println("Cliente não encontrado.");
+                        break;
+                    }
+                    Cliente.removerCliente(cliente);
+                    System.out.println("--------------------------------------------");
                     break;
                 }
             }

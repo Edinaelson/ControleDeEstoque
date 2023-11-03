@@ -10,9 +10,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/clientes/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/clientes/Cliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/menu/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/menu/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/produto/Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/produto/Produto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientes/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientes/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientes/Fisico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientes/Fisico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/produto/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/produto/Produto.java" afterDir="false" />
     </list>
@@ -55,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging menu",
+    "git-widget-placeholder": "menu",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/ProjetoBreno/ControleDeEstoque",
     "node.js.detected.package.eslint": "true",
