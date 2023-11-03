@@ -102,7 +102,7 @@ public class Cliente {
                 }
                 if (clientes.get(i).getTipo() == 2){
                     System.out.print(i + " Nome: " + clientes.get(i).getNome());
-                    System.out.println(": Júridica ");
+                    System.out.println(": Júridico ");
                 }
             }
         }

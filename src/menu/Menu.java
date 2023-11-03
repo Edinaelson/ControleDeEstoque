@@ -1,5 +1,8 @@
 package menu;
 
+import clientes.Cliente;
+import clientes.Fisico;
+import clientes.Juridico;
 import produto.Produto;
 
 import javax.sound.midi.Soundbank;
@@ -14,6 +17,7 @@ public class Menu {
         System.out.println("3- Listar Clientes");
         System.out.println("4- Listar Produtos");
         System.out.println("5- Pesquisar cliente");
+        System.out.println("6- Efetuar compra de produto: ");
         System.out.println("0- Sair");
         int i = 10;
         System.out.println("--------------------------------------------");
@@ -22,6 +26,7 @@ public class Menu {
             i = scanner.nextInt();
             switch (i) {
                 case 1: {
+                    System.out.println("Cadastrar Produto");
                     System.out.println("Informe nome: ");
                     String nome = scanner.next();
                     System.out.println("Informe código(numero): ");
@@ -37,13 +42,40 @@ public class Menu {
                     break;
                 }
                 case 2: {
+                    System.out.println("Informe nome: ");
+                    String nome = scanner.next();
+                    System.out.println("Informe documento(CNPJ ou CPF:");
+                    String documento = scanner.next();
+                    // colocar 1000 para cpf ou 1500 para CNPJ
+                    System.out.println("Informe saldo do cliente: ");
+                    double saldo = scanner.nextDouble();
+                    int tipo;// 1 CPF/ 2 CNPJ
+                    if (documento.length()>11){
+                        tipo = 2;
+                        Juridico juridico = new Juridico(nome,documento,tipo,saldo);
+                        Cliente.cadastrarCliente(juridico);
+                    }
+                    if (documento.length() <= 11){
+                        tipo = 1;
+                        Fisico fisico = new Fisico(nome,documento,tipo,saldo);
+                        Cliente.cadastrarCliente(fisico);
+                    }
 
+                    System.out.println("--------------------------------------------");
+                    break;
                 }
                 case 3: {
-
+                    Cliente.listarClientes();
+                    System.out.println("--------------------------------------------");
+                    break;
                 }
                 case 4: {
                     Produto.listarProdutos();
+                    System.out.println("--------------------------------------------");
+                    break;
+                }
+                case 5:{
+
                     System.out.println("--------------------------------------------");
                     break;
                 }
@@ -51,4 +83,5 @@ public class Menu {
         }
         scanner.close();
     }
+
 }
