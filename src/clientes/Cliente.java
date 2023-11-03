@@ -3,6 +3,7 @@ package clientes;
 import produto.Produto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
     private String nome;
@@ -45,14 +46,6 @@ public class Cliente {
         return nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
     //Listas
     private static ArrayList<Cliente> clientes = new ArrayList<>();
     public static ArrayList<String> produtos = new ArrayList<>();
@@ -74,6 +67,9 @@ public class Cliente {
         }
     }
 
+    public void Cliente(){
+
+    }
 
     public Cliente(String nome, String documento, int tipo, double saldo) {
         setNome(nome);
@@ -95,14 +91,13 @@ public class Cliente {
         int n = clientes.size();
         if (n > 0){
             for(i = 0; i < n;i++){
-                //System.out.println("nome: " + clientes.get(i).getNome() +  "Tipo: " + clientes.get(i).getTipo());
                 if (clientes.get(i).getTipo() == 1){
                     System.out.print(i + " Nome: " + clientes.get(i).getNome());
-                    System.out.println(": Física ");
+                    System.out.println(":Pessoa Física ");
                 }
                 if (clientes.get(i).getTipo() == 2){
                     System.out.print(i + " Nome: " + clientes.get(i).getNome());
-                    System.out.println(": Júridico ");
+                    System.out.println(":Pessoa Júridico ");
                 }
             }
         }
@@ -111,7 +106,17 @@ public class Cliente {
         }
     }
 
-    //TODO criar algum metodo para identificar usuario se é cpf ou cnpj
+    static int y;
+    public static Cliente cliente(String documento){
+        int n = clientes.size();
+        for (int x = 0;y <n; y++ ){
+            if (documento.equals(clientes.get(x).cnpj)){
+                return clientes.get(x);
+            }
+        }
+        return null;
+    }
+
     public static void identificarDocumento(int documento){
         if(documento == 2){
             System.out.println("Pessoa Juridica");
@@ -119,5 +124,13 @@ public class Cliente {
         if (documento == 1){
             System.out.println("Pessoa Física");
         }
+    }
+
+    //comprar produto
+    public int comprarProduto(int quant, double valor,Produto produto){
+        setSaldo(getSaldo() - (valor * quant));
+        System.out.println("Novo valor: " + getSaldo());
+        produto.setQuantidade(produto.getQuantidade() - quant);
+        return 1;
     }
 }

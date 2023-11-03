@@ -53,44 +53,19 @@ public class Produto {
         setQuantidade(quantidade);
         setPreco(preco);
     }
-
     public Produto(){
 
     }
-
-    //Listas
-    private static ArrayList<Produto> produtos = new ArrayList<>();
-
-    public static void cadastrarProduto(Produto produto){
-        produtos.add(produto);
-    }
-
-    static int i;
-    public static void listarProdutos(){
-        int n = produtos.size();
-        if (n > 0){
-            for(i = 0; i < n;i++){
-                System.out.println(i + " nome: " + produtos.get(i).getNome());
-            }
-        }
-        if(n == 0){
-            System.out.println("Produtos não cadastrados");
-        }
-    }
-
-    //fim lista
-
     public void Produto(){
 
     }
 
-    public void efetuarCompra(int quant) throws Exception{
-        System.out.println("quantidade: " + getQuantidade());
+    public int efetuarCompra(int quant) throws Exception{
         System.out.println("quantidade requisitada: " + quant);
-
         if(quant > getQuantidade()){
             throw new ProdInsuficiente();
         }
+        return 1;
     }
 
     public void editarProduto(){
@@ -126,4 +101,37 @@ public class Produto {
         }
         scanner.close();
     }
+
+    /*
+    Cadastro de produtos
+     */
+    public static ArrayList<Produto> produtos = new ArrayList<>();
+    public static void cadastrarProduto(Produto produto){
+        produtos.add(produto);
+    }
+
+    static int i;
+    public static void listarProdutos(){
+        int n = produtos.size();
+        if (n > 0){
+            for(i = 0; i < n;i++){
+                System.out.println("nome "+ produtos.get(i).getNome()+ ", Preço "+ produtos.get(i).getPreco()+ ", quantidade "+ produtos.get(i).getQuantidade()+", código: "+produtos.get(i).getCodigo());
+            }
+        }
+        if(n == 0){
+            System.out.println("Produtos não cadastrados");
+        }
+    }
+
+    //buscar produto
+    public static Produto buscarProduto(int codigoProduto) {
+        for (Produto produto : produtos) {
+            if (produto.getCodigo() == codigoProduto) {
+                return produto;
+            }
+        }
+        return null; // Retorna null se o produto não for encontrado.
+    }
+
+
 }
