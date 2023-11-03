@@ -2,6 +2,7 @@
 import br.com.caelum.stella.tinytype.CPF;
 import clientes.Fisico;
 import exceptions.ProdInsuficiente;
+import menu.Menu;
 import produto.Produto;
 import utils.ValidarCPF;
 
@@ -10,38 +11,40 @@ import clientes.Cliente;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        Cliente c1 = new Cliente("Edinaelson","07403743385",2,1500);
-        Cliente c2 = new Cliente("Fabricio","07403743383",2,1500);
-        Cliente c3 = new Cliente("Ana","2303743385",2,1500);
+
+        Menu.menu();
+//        Cliente c1 = new Cliente("Edinaelson","07403743385",2,1500);
+//        Cliente c2 = new Cliente("Fabricio","07403743383",2,1500);
+//        Cliente c3 = new Cliente("Ana","2303743385",2,1500);
         //Cliente c4 = new Cliente("Edi","07403744385",2);
 
-        Fisico f1 = new Fisico("Ana Carolina","07403743385",1,1000);
+//        Fisico f1 = new Fisico("Ana Carolina","07403743385",1,1000);
 
-        Cliente.cadastrarCliente(c1);
-        Cliente.cadastrarCliente(c2);
-        Cliente.cadastrarCliente(c3);
-        Cliente.cadastrarCliente(f1);
+//        Cliente.cadastrarCliente(c1);
+//        Cliente.cadastrarCliente(c2);
+//        Cliente.cadastrarCliente(c3);
+//        Cliente.cadastrarCliente(f1);
 
-        Cliente.listarClientes();
+//        Cliente.listarClientes();
 
-        System.out.println("---------------------------------");
-        Cliente.identificarDocumento(c2.getTipo());
-        System.out.println("---------------------------------");
+//        System.out.println("---------------------------------");
+//        Cliente.identificarDocumento(c2.getTipo());
+//        System.out.println("---------------------------------");
 
 
         //Testar cadastro de produto
-        Produto prod1 = new Produto("Prego",123,10,20.77);
+//        Produto prod1 = new Produto("Prego",123,10,20.77);
 
-        f1.cadastrarProdutosComprados(prod1.getNome());
+//        f1.cadastrarProdutosComprados(prod1.getNome());
 
-        f1.listarProdutos();
+//        f1.listarProdutos();
 
         //Cliente.cadastrar(c4);
 
         //TODO criar foreach para listar os clientes com numeração.
 //        Cliente.listarClientes();
 //        Cliente.excluirCliente(c1);
-        System.out.println("Saldo: " + c2.getSaldo());
+//        System.out.println("Saldo: " + c2.getSaldo());
 
 //        Produto prod1 = new Produto("Prego",123,10,20.77);
 //        prod1.imprimir();
@@ -73,11 +76,9 @@ public class Main {
 //
 //        prod1.imprimir();
 
-        System.out.println("+++++++++++++++++++++++++++");
-        Fisico f2 = new Fisico("Edi","07403743385",1,2000);
-        System.out.println(f2.getSaldo());
-        System.out.println("+++++++++++++++++++++++++++");
-
-
+//        System.out.println("+++++++++++++++++++++++++++");
+//        Fisico f2 = new Fisico("Edi","07403743385",1,2000);
+//        System.out.println(f2.getSaldo());
+//        System.out.println("+++++++++++++++++++++++++++");
     }
 }
