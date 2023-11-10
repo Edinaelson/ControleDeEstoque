@@ -28,18 +28,15 @@ public class Cliente {
     public  void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
     public String getNome() {
         return nome;
     }
 
-    public Cliente(String nome, String documento, int tipo, double saldo) {
+    public Cliente(String nome, String documento, double saldo,int tipo) {
         setNome(nome);
         setCnpj(documento);
-        setTipo(tipo);
         setSaldo(saldo);
+        setTipo(tipo);
     }
     //Pegar todos os clientes para listar
     int i;
@@ -73,13 +70,16 @@ public class Cliente {
         return null;
     }
 
-    public static void identificarDocumento(int documento){
-        if(documento == 2){
-            System.out.println("Pessoa Juridica");
-        }
+    public int identificarDocumento(int documento){
         if (documento == 1){
             System.out.println("Pessoa Física");
+            return 1;
         }
+        if(documento == 2){
+            System.out.println("Pessoa Juridica");
+            return 2;
+        }
+        return -1;
     }
 
     //comprar produto
