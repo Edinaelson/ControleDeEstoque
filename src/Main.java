@@ -1,6 +1,7 @@
 import menu.Menu;
 public class Main {
     public static void main(String[] args) throws Exception{
-        Menu.menu();
+        Menu menu = new Menu();
+        menu.menu();
     }
 }

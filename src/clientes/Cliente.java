@@ -1,7 +1,5 @@
 package clientes;
-
 import produto.Produto;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,66 +8,31 @@ public class Cliente {
     private String nome;
     public String cnpj;
     public String cpf;
-
     public double saldo;
-
     public double getSaldo() {
         return saldo;
     }
-
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
     public  int tipo; //1 pessoa fisica 2 juridico
-
     public int getTipo() {
         return tipo;
     }
-
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public  void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
     public String getNome() {
         return nome;
-    }
-
-    //Listas
-    private static ArrayList<Cliente> clientes = new ArrayList<>();
-    public static ArrayList<String> produtos = new ArrayList<>();
-
-    public void cadastrarProdutosComprados(String prod){
-        produtos.add(prod);
-    }
-
-    int x;
-    public void listarProdutos(){
-        int n = produtos.size();
-        if (n > 0){
-            for(i = 0; i < n;i++){
-                System.out.println(i + " Nome: " + produtos.get(i));
-            }
-        }
-        if(n == 0){
-            System.out.println("Produtos não cadastrados");
-        }
-    }
-
-    public void Cliente(){
-
     }
 
     public Cliente(String nome, String documento, int tipo, double saldo) {
@@ -78,17 +41,9 @@ public class Cliente {
         setTipo(tipo);
         setSaldo(saldo);
     }
-
-    public static void cadastrarCliente(Cliente cliente){
-        clientes.add(cliente);
-    }
-
-    public static void excluirCliente(Cliente cliente){
-        clientes.remove(cliente);
-    }
-    
-    static int i;
-    public static void listarClientes(){
+    //Pegar todos os clientes para listar
+    int i;
+    public void listarClientes(List<Cliente> clientes){
         int n = clientes.size();
         if (n > 0){
             for(i = 0; i < n;i++){
@@ -106,9 +61,9 @@ public class Cliente {
             System.out.println("Clientes não cadastrados");
         }
     }
-
-    static int y;
-    public static Cliente cliente(String documento){
+//pegar clientes no parametro como lista
+    int y;
+    public Cliente cliente(String documento, List<Cliente> clientes){
         int n = clientes.size();
         for (int x = 0;y <n; y++){
             if (documento.equals(clientes.get(x).cnpj)){
@@ -135,7 +90,7 @@ public class Cliente {
         return 1;
     }
 
-    public static void editarCliente(Cliente cliente) {
+    public  void editarCliente(Cliente cliente) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Editar Cliente");
         System.out.println("1 - Editar Nome");
@@ -167,11 +122,4 @@ public class Cliente {
 
         //scanner.close();
     }
-
-    //remover cliente
-    public static void removerCliente(Cliente cliente){
-        clientes.remove(cliente);
-        System.out.println("Cliente removido com sucesso!");
-    }
-
 }

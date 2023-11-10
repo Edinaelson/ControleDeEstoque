@@ -7,10 +7,16 @@ import exceptions.ProdInsuficiente;
 import produto.Produto;
 
 import javax.sound.midi.Soundbank;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    public static void menu() throws Exception {
+
+    private List<Cliente> clientes = new ArrayList<>();
+    private List<Produto> produtosComprados = new ArrayList<>();
+
+    public void menu() throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("--------------------------------------------");
         System.out.println("1- Cadastrar Produto");
@@ -32,181 +38,93 @@ public class Menu {
             i = scanner.nextInt();
             switch (i) {
                 case 1: {
-                    System.out.println("Cadastrar Produto");
-                    System.out.println("Informe nome: ");
-                    String nome = scanner.next();
-                    System.out.println("Informe código(numero): ");
-                    int codigo = scanner.nextInt();
-                    System.out.println("Informe quantidade: ");
-                    int quantidade = scanner.nextInt();
-                    System.out.println("Informe preço: ");
-                    double preco = scanner.nextDouble();
-                    Produto produto = new Produto(nome, codigo, quantidade, preco);
-                    //TODO bug, nome aparece duas vezes no cadastro
-                    Produto.cadastrarProduto(produto);
+
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 2: {
-                    System.out.println("Cadastrar cliente");
-                    System.out.println("Informe nome: ");
-                    String nome = scanner.next();
-                    System.out.println("Informe documento(CNPJ ou CPF):");
-                    String documento = scanner.next();
-                    // colocar 1000 para cpf ou 1500 para CNPJ
-                    System.out.println("Informe saldo do cliente: ");
-                    double saldo = scanner.nextDouble();
-                    int tipo;// 1 CPF/ 2 CNPJ
-                    if (documento.length() > 11) {
-                        tipo = 2;
-                        Juridico juridico = new Juridico(nome, documento, tipo, saldo);
-                        Cliente.cadastrarCliente(juridico);
-                    }
-                    if (documento.length() <= 11) {
-                        tipo = 1;
-                        Fisico fisico = new Fisico(nome, documento, tipo, saldo);
-                        Cliente.cadastrarCliente(fisico);
-                    }
-
+                    cadastrarCliente();
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 3: {
-                    System.out.println("Listar Clientes");
-                    Cliente.listarClientes();
+
+                    for (int n = 0;n<clientes.size();n++){
+                        System.out.println("------------------------------------");
+                        System.out.println("Nome: " + clientes.get(n).getNome());
+                        System.out.println("Tipo: " + clientes.get(n).getTipo());
+                        System.out.println("------------------------------------");
+                    }
+
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 4: {
-                    System.out.println("Listar Produtos");
-                    Produto.listarProdutos();
+
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 5:{
-                    System.out.println("Ver cliente: ");
-                    System.out.println("Informe o documento do cliente: ");
-                    String documento = scanner.next();
-                    Cliente cliente = Cliente.cliente(documento);
 
-                    if (cliente == null) {
-                        System.out.println("Cliente não encontrado.");
-                        break;
-                    }
-
-                    System.out.println("Nome: " + cliente.getNome());
-                    System.out.println("Saldo: " + cliente.getSaldo());
-                    System.out.print("Tipo: ");
-                    Cliente.identificarDocumento(cliente.getTipo());
-                    System.out.println("Itens comprados: ");
-                    cliente.listarProdutos();
 
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 6: {
-                    System.out.println("Efetuar compra: ");
-                    Cliente.listarClientes();
-                    Produto.listarProdutos();
-                    System.out.println("Informe documento do cliente: ");
-                    String documento = scanner.next();
-                    Cliente cliente = Cliente.cliente(documento);
 
-                    if (cliente == null) {
-                        System.out.println("Cliente não encontrado.");
-                        break;
-                    }
-
-                    System.out.println("Informe o código do produto: ");
-                    int codigoProduto = scanner.nextInt();
-                    Produto produto = Produto.buscarProduto(codigoProduto);
-
-                    if (produto == null) {
-                        System.out.println("Produto não encontrado.");
-                        break;
-                    }
-
-                    System.out.println("Informe a quantidade desejada: ");
-                    int quant = scanner.nextInt();
-
-                    try {
-                        if (produto.efetuarCompra(quant) == 1) {
-                            if (cliente.comprarProduto(quant, produto.getPreco(), produto) == 1) {
-                                System.out.println("Compra efetuada com sucesso.");
-                                System.out.println("Novo saldo do cliente: " + cliente.getSaldo());
-                                cliente.cadastrarProdutosComprados(produto.getNome());
-                                //Produto.listarProdutos(); // Mostrar a lista de produtos após a compra.
-                            }
-                        }
-                    } catch (ProdInsuficiente e) {
-                        System.out.println(e.getMessage());
-                    }
                     System.out.println("--------------------------------------------");
 
                     break;
                 }
                 case 7:{
-                    System.out.println("Editar Cliente");
-                    System.out.println("Informe o documento do cliente: ");
-                    String documento = scanner.next();
-                    Cliente cliente = Cliente.cliente(documento);
 
-                    if (cliente == null) {
-                        System.out.println("Cliente não encontrado.");
-                        break;
-                    }
-                    Cliente.editarCliente(cliente);
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 8:{
-                    System.out.println("Editar Produto");
-                    Produto.listarProdutos();
-                    System.out.println("Informe o código do produto: ");
-                    int codigoProduto = scanner.nextInt();
-                    Produto produto = Produto.buscarProduto(codigoProduto);
 
-                    if (produto == null) {
-                        System.out.println("Produto não encontrado.");
-                        break;
-                    }
-                    Produto.editarProduto(produto);
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 9:{
-                    System.out.println("Ecluir produto");
-                    Produto.listarProdutos();
-                    System.out.println("Informe o código do produto: ");
-                    int codigoProduto = scanner.nextInt();
-                    Produto produto = Produto.buscarProduto(codigoProduto);
 
-                    if (produto == null) {
-                        System.out.println("Produto não encontrado.");
-                        break;
-                    }
-                    Produto.excluirProduto(produto);
                     System.out.println("--------------------------------------------");
                     break;
                 }
                 case 10:{
-                    System.out.println("Ecluir cliente");
-                    Cliente.listarClientes();
-                    System.out.println("Informe documento(CPF | CNPJ)");
-                    String documento = scanner.next();
-                    Cliente cliente = Cliente.cliente(documento);
 
-                    if (cliente == null) {
-                        System.out.println("Cliente não encontrado.");
-                        break;
-                    }
-                    Cliente.removerCliente(cliente);
                     System.out.println("--------------------------------------------");
                     break;
                 }
             }
         }
         scanner.close();
+    }
+
+    public void cadastrarCliente(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Informe nome: ");
+        String nome = scanner.nextLine();
+        System.out.println("Informe tipo: 1-Pessoa Fisica | 2-Pessoa Juridica");
+        int tipo = scanner.nextInt();
+        if(tipo == 1){
+            System.out.println("Informe CPF: ");
+            String cpf = scanner.next();
+            System.out.println("Informe saldo: ");
+            Double saldo = scanner.nextDouble();
+            Fisico fisico = new Fisico(nome,cpf,1,saldo);
+            clientes.add(fisico);
+        }
+        if (tipo == 2) {
+            System.out.println("Informe cnpj: ");
+            String cnpj = scanner.next();
+            System.out.println("Informe saldo: ");
+            Double saldo = scanner.nextDouble();
+            Juridico juridico = new Juridico(nome, cnpj, 2, saldo);
+            clientes.add(juridico);
+        }
+        System.out.println("Cadastrado com sucesso!");
+        //scanner.close();
     }
 
 }
