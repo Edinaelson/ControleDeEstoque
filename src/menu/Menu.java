@@ -3,6 +3,7 @@ package menu;
 import clientes.Cliente;
 import clientes.Fisico;
 import clientes.Juridico;
+import exceptions.ProdInsuficiente;
 import produto.Produto;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,6 @@ public class Menu {
         produtos.add(p1);produtos.add(p2);produtos.add(p3);produtos.add(p4);produtos.add(p5);
         //Fim Lista de Produtos
 
-        //String corVerde = "\u001B[32m";
-        //String linha = "|--------------------------------------------------------|";
         Scanner scanner = new Scanner(System.in);
         //System.out.println("|--------------------------------------------------------|");
         System.out.println(corVerde + linha + "\u001B[0m");
@@ -80,8 +79,16 @@ public class Menu {
                     verCliente();
                     break;
                 }
+                case 6: {
+                    efetuarCompra();
+                    break;
+                }
                 case 7: {
                     editarCliente();
+                    break;
+                }
+                case 8: {
+                    editarProduto();
                     break;
                 }
                 case 9: {
@@ -95,6 +102,91 @@ public class Menu {
             }
         }
         scanner.close();
+    }
+
+    /*
+    * Cadastro de produtos
+    * */
+
+    /*
+    * Efetuar compra de produto, ao efetuar a compra o saldo
+    * do usuario é descontado com o valor do produto
+    * */
+    public void efetuarCompra() throws ProdInsuficiente {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Comprar produto: ");
+        System.out.println("Informe quantidade");
+        int quantidadeProduto = scanner.nextInt();
+        System.out.println("Informe código do produto: ");
+        int codigoProduto = scanner.nextInt();
+        System.out.println("Informe documento do cliente cpf/cnpj");
+        String documentoCliente = scanner.next();
+
+        for (int i = 0;i<produtos.size();i++){
+            if (codigoProduto == produtos.get(i).getCodigo()){
+                for (int x = 0; x < clientes.size(); x++){
+                    if (documentoCliente.equals(clientes.get(x).getDocumento())){
+                        comprarProduto(quantidadeProduto,produtos.get(i).getPreco(),produtos.get(i),clientes.get(x));
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+    * Código que analisa a quantidade, ela lança uma exceção
+    * caso ultrapasse a quantidade disponive em estoque.
+    * */
+    public int comprarProduto(int quant, double valor,Produto produto, Cliente cliente) throws ProdInsuficiente {
+        System.out.println("quantidade requisitada: " + quant);
+        if(quant > produto.getQuantidade()){
+            throw new ProdInsuficiente();
+        }
+        cliente.setSaldo(cliente.getSaldo() - (valor * quant));
+        System.out.println("Novo valor: " + cliente.getSaldo());
+        produto.setQuantidade(produto.getQuantidade() - quant);
+        return 1;
+    }
+
+    //Fim compra de produto
+
+    public void editarProduto(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Editar produto");
+        System.out.println("Informe código de produto: ");
+        int codigo = scanner.nextInt();
+        for (int i =0; i< produtos.size();i++){
+            if (codigo == produtos.get(i).getCodigo()){
+                System.out.println("1 - Nome, 2- Codigo, 3- Quantidade, 4- Preço");
+                int escolha = scanner.nextInt();
+                switch (escolha){
+                    case 1:{
+                        System.out.println("Novo Nome");
+                        String name = scanner.next();
+                        produtos.get(i).setNome(name);
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("Novo Codigo: ");
+                        int cod = scanner.nextInt();
+                        produtos.get(i).setCodigo(cod);
+                        break;
+                    }
+                    case 3: {
+                        System.out.println("Nova quantidade: ");
+                        int quant = scanner.nextInt();
+                        produtos.get(i).setQuantidade(quant);
+                        break;
+                    }
+                    case 4:{
+                        System.out.println("Novo Preço");
+                        double p = scanner.nextDouble();
+                        produtos.get(i).setPreco(p);
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public  void editarCliente() {
@@ -182,7 +274,6 @@ public class Menu {
             clientes.add(juridico);
         }
         System.out.println("Cadastrado com sucesso!");
-        System.out.println("------------------------------------");
     }
 
     public void listarClientes(){
@@ -217,6 +308,5 @@ public class Menu {
                 Cliente.identificarDocumento(clientes.get(i).getTipo());
             }
         }
-        System.out.println("------------------------------------");
     }
 }

@@ -56,12 +56,4 @@ public class Cliente {
         }
         return -1;
     }
-
-    //comprar produto
-    public int comprarProduto(int quant, double valor,Produto produto){
-        setSaldo(getSaldo() - (valor * quant));
-        System.out.println("Novo valor: " + getSaldo());
-        produto.setQuantidade(produto.getQuantidade() - quant);
-        return 1;
-    }
 }
