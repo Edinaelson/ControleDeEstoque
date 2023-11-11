@@ -61,7 +61,7 @@ public class Menu {
             System.out.println("Informe opção: ");
             i = scanner.nextInt();
             switch (i) {
-                case 1, 6, 7, 8, 9, 10: {
+                case 1: {
                     break;
                 }
                 case 2: {
@@ -80,9 +80,26 @@ public class Menu {
                     verCliente();
                     break;
                 }
+                case 9:{
+                    excluirProduto();
+                    break;
+                }
             }
         }
         scanner.close();
+    }
+
+    public void excluirProduto(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Exclusão de Produto");
+        System.out.println("Informe Código");
+        int codigo = scanner.nextInt();
+        for(int i=0;i<produtos.size();i++){
+            if(codigo == produtos.get(i).getCodigo()){
+                System.out.println("Produto removido: " + produtos.get(i).getNome());
+                produtos.remove(produtos.get(i));
+            }
+        }
     }
 
     public void cadastrarCliente(){
@@ -110,7 +127,6 @@ public class Menu {
         }
         System.out.println("Cadastrado com sucesso!");
         System.out.println("------------------------------------");
-        //scanner.close();
     }
 
     public void listarClientes(){
@@ -118,13 +134,7 @@ public class Menu {
         System.out.println(corVerde + linha + "\u001B[0m");
         for (int n = 0;n<clientes.size();n++){
             System.out.println("\u001B[32m|\u001B[0m\u001b[34mNome: " + clientes.get(n).getNome());
-            if (clientes.get(n).getTipo() == 2){
-                System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Juridico\u001b[m");
-            }
-            if (clientes.get(n).getTipo() == 1){
-                System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Fisico\u001b[m");
-            }
-            System.out.println(corVerde + linha + "\u001B[0m");
+            Cliente.identificarDocumento(clientes.get(n).getTipo());
         }
     }
 
@@ -149,7 +159,7 @@ public class Menu {
                 System.out.println("Nome: " + clientes.get(i).getNome());
                 System.out.println("Saldo: " + clientes.get(i).getSaldo());
                 //System.out.println("Tipo: " + clientes.get(i).getTipo());
-                clientes.get(i).identificarDocumento(clientes.get(i).getTipo());
+                Cliente.identificarDocumento(clientes.get(i).getTipo());
             }
         }
         System.out.println("------------------------------------");

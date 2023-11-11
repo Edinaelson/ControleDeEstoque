@@ -91,24 +91,4 @@ public class Produto {
             }
         }
     }
-
-    int i;
-    public void listarProdutos(List<Produto> produtos){
-        int n = produtos.size();
-        if (n > 0){
-            for(i = 0; i < n;i++){
-                System.out.println("nome "+ produtos.get(i).getNome()+ ", Preço "+ produtos.get(i).getPreco()+ ", quantidade "+ produtos.get(i).getQuantidade()+", código: "+produtos.get(i).getCodigo());
-            }
-        }
-    }
-
-    //buscar produto
-    public Produto buscarProduto(int codigoProduto, List<Produto> produtos) {
-        for (Produto produto : produtos) {
-            if (produto.getCodigo() == codigoProduto) {
-                return produto;
-            }
-        }
-        return null;
-    }
 }

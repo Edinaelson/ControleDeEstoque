@@ -38,45 +38,16 @@ public class Cliente {
         setSaldo(saldo);
         setTipo(tipo);
     }
-    //Pegar todos os clientes para listar
-    int i;
-    public void listarClientes(List<Cliente> clientes){
-        int n = clientes.size();
-        if (n > 0){
-            for(i = 0; i < n;i++){
-                if (clientes.get(i).getTipo() == 1){
-                    System.out.print(i + " Nome: " + clientes.get(i).getNome());
-                    System.out.println(":Pessoa Física ");
-                }
-                if (clientes.get(i).getTipo() == 2){
-                    System.out.print(i + " Nome: " + clientes.get(i).getNome());
-                    System.out.println(":Pessoa Júridico ");
-                }
-            }
-        }
-        if(n == 0){
-            System.out.println("Clientes não cadastrados");
-        }
-    }
-//pegar clientes no parametro como lista
-    int y;
-    public Cliente cliente(String documento, List<Cliente> clientes){
-        int n = clientes.size();
-        for (int x = 0;y <n; y++){
-            if (documento.equals(clientes.get(x).cnpj)){
-                return clientes.get(x);
-            }
-        }
-        return null;
-    }
 
-    public int identificarDocumento(int documento){
+    public static int identificarDocumento(int documento){
         if (documento == 1){
-            System.out.println("Pessoa Física");
+            System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Fisica\u001b[m");
+            System.out.println("\u001B[32m|\u001B[0m--------------------------------------------------------\u001B[32m|\u001B[0m");
             return 1;
         }
         if(documento == 2){
-            System.out.println("Pessoa Juridica");
+            System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Juridica\u001b[m");
+            System.out.println("\u001B[32m|\u001B[0m--------------------------------------------------------\u001B[32m|\u001B[0m");
             return 2;
         }
         return -1;
