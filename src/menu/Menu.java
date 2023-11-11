@@ -5,6 +5,8 @@ import clientes.Fisico;
 import clientes.Juridico;
 import exceptions.ProdInsuficiente;
 import produto.Produto;
+import utils.ValidarCPF;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -134,6 +136,8 @@ public class Menu {
     * */
 
     public void cadastrarCliente(){
+        ValidarCPF validar = new ValidarCPF();
+
         System.out.println("Cadastro de Clientes");
         Scanner scanner = new Scanner(System.in);
         System.out.println("Informe nome: ");
@@ -143,10 +147,13 @@ public class Menu {
         if(tipo == 1){
             System.out.println("Informe CPF: ");
             String cpf = scanner.next();
-            System.out.println("Informe saldo: ");
-            Double saldo = scanner.nextDouble();
-            Fisico fisico = new Fisico(nome,cpf,saldo,tipo);
-            clientes.add(fisico);
+            if (validar.validarCPF(cpf)){
+                System.out.println("Informe saldo: ");
+                Double saldo = scanner.nextDouble();
+                Fisico fisico = new Fisico(nome,cpf,saldo,tipo);
+                clientes.add(fisico);
+            }
+            System.out.println("Cadastrado com sucesso!");
         }
         if (tipo == 2) {
             System.out.println("Informe cnpj: ");
@@ -155,8 +162,8 @@ public class Menu {
             double saldo = scanner.nextDouble();
             Juridico juridico = new Juridico(nome, cnpj, saldo,tipo);
             clientes.add(juridico);
+            System.out.println("Cadastrado com sucesso!");
         }
-        System.out.println("Cadastrado com sucesso!");
     }
 
     //Fim cadastro de Clientes
