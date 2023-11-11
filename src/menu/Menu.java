@@ -11,7 +11,11 @@ import java.util.Scanner;
 public class Menu {
 
     private List<Cliente> clientes = new ArrayList<>();
-    private List<Produto> produtosComprados = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
+
+    //cores para o terminal
+    String corVerde = "\u001B[32m";
+    String linha = "|--------------------------------------------------------|";
 
     public void menu() throws Exception {
 
@@ -28,10 +32,20 @@ public class Menu {
 
         clientes.add(f1);clientes.add(f2);clientes.add(f3);clientes.add(f4);
         clientes.add(j1);clientes.add(j2);clientes.add(j3);clientes.add(j4);
-
         //Fim lista de Clientes
-        String corVerde = "\u001B[32m";
-        String linha = "|--------------------------------------------------------|";
+
+        //Lista de Produtos
+        Produto p1 = new Produto("Placa mãe",455,10,375);
+        Produto p2 = new Produto("Memoria Ram",456,9,100);
+        Produto p3 = new Produto("Mouse",457,8,60);
+        Produto p4 = new Produto("Teclado",458,7,540);
+        Produto p5 = new Produto("Gabinete",459,6,400);
+
+        produtos.add(p1);produtos.add(p2);produtos.add(p3);produtos.add(p4);produtos.add(p5);
+        //Fim Lista de Produtos
+
+        //String corVerde = "\u001B[32m";
+        //String linha = "|--------------------------------------------------------|";
         Scanner scanner = new Scanner(System.in);
         //System.out.println("|--------------------------------------------------------|");
         System.out.println(corVerde + linha + "\u001B[0m");
@@ -47,7 +61,7 @@ public class Menu {
             System.out.println("Informe opção: ");
             i = scanner.nextInt();
             switch (i) {
-                case 1, 4, 6, 7, 8, 9, 10: {
+                case 1, 6, 7, 8, 9, 10: {
                     break;
                 }
                 case 2: {
@@ -56,6 +70,10 @@ public class Menu {
                 }
                 case 3: {
                     listarClientes();
+                    break;
+                }
+                case 4: {
+                    listarProdutos();
                     break;
                 }
                 case 5:{
@@ -97,18 +115,29 @@ public class Menu {
 
     public void listarClientes(){
         System.out.println("Lista de Clientes");
+        System.out.println(corVerde + linha + "\u001B[0m");
         for (int n = 0;n<clientes.size();n++){
-            System.out.println("Nome: " + clientes.get(n).getNome());
-            //System.out.println("Tipo: " + clientes.get(n).getTipo());
+            System.out.println("\u001B[32m|\u001B[0m\u001b[34mNome: " + clientes.get(n).getNome());
             if (clientes.get(n).getTipo() == 2){
-                System.out.println("Pessoa Juridico");
+                System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Juridico\u001b[m");
             }
             if (clientes.get(n).getTipo() == 1){
-                System.out.println("Pessoa Fisico");
+                System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Fisico\u001b[m");
             }
-            System.out.println("------------------------------------");
+            System.out.println(corVerde + linha + "\u001B[0m");
         }
-        System.out.println("------------------------------------");
+    }
+
+    public void listarProdutos(){
+        System.out.println("Lista de Produtos");
+        System.out.println(corVerde + linha + "\u001B[0m");
+        for (int n = 0;n<produtos.size();n++){
+            System.out.println("\u001B[32m|\u001B[0m\u001b[34mNome:.................. " + produtos.get(n).getNome());
+            System.out.println("\u001B[32m|\u001B[0m\u001b[34mPreço:................. " + produtos.get(n).getPreco());
+            System.out.println("\u001B[32m|\u001B[0m\u001b[34mQuantida:.............. " + produtos.get(n).getQuantidade());
+            System.out.println("\u001B[32m|\u001B[0m\u001b[34mCódigo:................ " + produtos.get(n).getCodigo());
+            System.out.println(corVerde + linha + "\u001B[0m");
+        }
     }
 
     public void verCliente(){

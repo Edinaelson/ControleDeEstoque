@@ -10,10 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Produto {
-    public String nome;
-    public int codigo;
-    public int quantidade;
-    public double preco;
+    public String nome; public int codigo; public int quantidade; public double preco;
 
     public String getNome() {
         return nome;
@@ -53,12 +50,6 @@ public class Produto {
         setQuantidade(quantidade);
         setPreco(preco);
     }
-    public Produto(){
-
-    }
-    public void Produto(){
-
-    }
 
     public int efetuarCompra(int quant) throws Exception{
         System.out.println("quantidade requisitada: " + quant);
@@ -68,7 +59,7 @@ public class Produto {
         return 1;
     }
 
-    public static void editarProduto(Produto produto){
+    public void editarProduto(Produto produto){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Editar produto");
         System.out.println("1 - Nome, 2- Codigo, 3- Quantidade, 4- Preço");
@@ -99,44 +90,25 @@ public class Produto {
                 break;
             }
         }
-        //scanner.close();
     }
 
-    /*
-    Cadastro de produtos
-     */
-    public static ArrayList<Produto> produtos = new ArrayList<>();
-    public static void cadastrarProduto(Produto produto){
-        produtos.add(produto);
-    }
-
-    static int i;
-    public static void listarProdutos(){
+    int i;
+    public void listarProdutos(List<Produto> produtos){
         int n = produtos.size();
         if (n > 0){
             for(i = 0; i < n;i++){
                 System.out.println("nome "+ produtos.get(i).getNome()+ ", Preço "+ produtos.get(i).getPreco()+ ", quantidade "+ produtos.get(i).getQuantidade()+", código: "+produtos.get(i).getCodigo());
             }
         }
-        if(n == 0){
-            System.out.println("Produtos não cadastrados");
-        }
     }
 
     //buscar produto
-    public static Produto buscarProduto(int codigoProduto) {
+    public Produto buscarProduto(int codigoProduto, List<Produto> produtos) {
         for (Produto produto : produtos) {
             if (produto.getCodigo() == codigoProduto) {
                 return produto;
             }
         }
-        return null; // Retorna null se o produto não for encontrado.
+        return null;
     }
-
-    //Excluir produto
-    public static void excluirProduto(Produto produto){
-        produtos.remove(produto);
-        System.out.println("Produto removido!");
-    }
-
 }
