@@ -1,12 +1,14 @@
 package clientes;
 import produto.Produto;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
     private String nome;
-    public String documento;
-    public double saldo;
+    private  int tipo; //1 pessoa fisica 2 juridico
+    private String documento;
+    private double saldo;
     public double getSaldo() {
         return saldo;
     }
@@ -20,8 +22,6 @@ public class Cliente {
     public String getDocumento() {
         return documento;
     }
-
-    public  int tipo; //1 pessoa fisica 2 juridico
     public int getTipo() {
         return tipo;
     }
@@ -34,7 +34,6 @@ public class Cliente {
     public  void setDocumento(String documento) {
         this.documento = documento;
     }
-
 
     public Cliente(String nome, String documento, double saldo,int tipo) {
         setNome(nome);

@@ -3,7 +3,7 @@ package produto;
 import exceptions.ProdInsuficiente;
 
 public class Produto {
-    public String nome; public int codigo; public int quantidade; public double preco;
+    private String nome; private int codigo; private int quantidade; private double preco;
 
     public String getNome() {
         return nome;
