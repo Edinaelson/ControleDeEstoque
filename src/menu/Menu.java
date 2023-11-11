@@ -76,17 +76,73 @@ public class Menu {
                     listarProdutos();
                     break;
                 }
-                case 5:{
+                case 5: {
                     verCliente();
                     break;
                 }
-                case 9:{
+                case 7: {
+                    editarCliente();
+                    break;
+                }
+                case 9: {
                     excluirProduto();
+                    break;
+                }
+                case 10: {
+                    excluirCliente();
                     break;
                 }
             }
         }
         scanner.close();
+    }
+
+    public  void editarCliente() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Editar Cliente");
+        System.out.println("Informe documento para buscar cliente: ");
+        String documento = scanner.next();
+        for (int i = 0; i<clientes.size();i++){
+            if(documento.equals(clientes.get(i).documento)){
+                System.out.println("1 - Editar Nome");
+                System.out.println("2 - Editar Saldo");
+                int escolha = scanner.nextInt();
+                switch (escolha) {
+                    case 1: {
+                        System.out.println("Novo Nome: ");
+                        scanner.nextLine();
+                        String novoNome = scanner.nextLine();
+                        clientes.get(i).setNome(novoNome);
+                        System.out.println("Nome editado com sucesso.");
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("Novo Saldo: ");
+                        double novoSaldo = scanner.nextDouble();
+                        clientes.get(i).setSaldo(novoSaldo);
+                        System.out.println("Saldo editado com sucesso.");
+                        break;
+                    }
+                    default: {
+                        System.out.println("Opção inválida.");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void excluirCliente(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Exclusão de Cliente");
+        System.out.println("Informe Documento: cpf/cnpj");
+        String documento = scanner.next();
+        for(int i=0;i<clientes.size();i++){
+            if(documento.equals(clientes.get(i).getDocumento())){
+                System.out.println("Cliente removido: " + clientes.get(i).getNome());
+                clientes.remove(clientes.get(i));
+            }
+        }
     }
 
     public void excluirProduto(){
@@ -155,10 +211,9 @@ public class Menu {
         System.out.println("Informe documento para buscar cliente: ");
         String documento = scanner.next();
         for (int i = 0; i<clientes.size();i++){
-            if(documento.equals(clientes.get(i).cnpj)){
+            if(documento.equals(clientes.get(i).documento)){
                 System.out.println("Nome: " + clientes.get(i).getNome());
                 System.out.println("Saldo: " + clientes.get(i).getSaldo());
-                //System.out.println("Tipo: " + clientes.get(i).getTipo());
                 Cliente.identificarDocumento(clientes.get(i).getTipo());
             }
         }
