@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c04fd22b-d559-4048-a3fc-34276cb1a327" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/clientes/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/clientes/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ControleDeEstoque/menu/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ControleDeEstoque/menu/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientes/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientes/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +53,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ProjetoBreno/ControleDeEstoque&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/FinalProject/ControleDeEstoque&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -89,7 +93,9 @@
       <workItem from="1699576241355" duration="1186000" />
       <workItem from="1699613761735" duration="8481000" />
       <workItem from="1699657136247" duration="12399000" />
-      <workItem from="1699731826777" duration="8229000" />
+      <workItem from="1699731826777" duration="13031000" />
+      <workItem from="1699799427384" duration="2396000" />
+      <workItem from="1699816540983" duration="684000" />
     </task>
     <servers />
   </component>

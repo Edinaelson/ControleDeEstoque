@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
+    private List<String> produtosComprados = new ArrayList<>();
+    public List<String> getProdutosComprados() {
+        return produtosComprados;
+    }
+    public void setProdutosComprados(String produtosComprados) {
+        this.produtosComprados.add(produtosComprados);
+    }
     private String nome;
     private  int tipo; //1 pessoa fisica 2 juridico
     private String documento;
@@ -45,12 +52,10 @@ public class Cliente {
     public static int identificarDocumento(int documento){
         if (documento == 1){
             System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Fisica\u001b[m");
-            System.out.println("\u001B[32m|\u001B[0m--------------------------------------------------------\u001B[32m|\u001B[0m");
             return 1;
         }
         if(documento == 2){
             System.out.println("\u001B[32m|\u001B[0m\u001b[34mPessoa Juridica\u001b[m");
-            System.out.println("\u001B[32m|\u001B[0m--------------------------------------------------------\u001B[32m|\u001B[0m");
             return 2;
         }
         return -1;

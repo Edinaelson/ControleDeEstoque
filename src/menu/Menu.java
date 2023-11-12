@@ -49,15 +49,23 @@ public class Menu {
         produtos.add(p1);produtos.add(p2);produtos.add(p3);produtos.add(p4);produtos.add(p5);
         //Fim Lista de Produtos
 
+        //Povoar compra do cliente na posição 0 sem descontar saldo
+
+        clientes.get(0).setProdutosComprados(produtos.get(0).getNome());
+        clientes.get(0).setProdutosComprados(produtos.get(1).getNome());
+        clientes.get(0).setProdutosComprados(produtos.get(2).getNome());
+
+        //Fim Povoamento
+
         Scanner scanner = new Scanner(System.in);
         //System.out.println("|--------------------------------------------------------|");
         System.out.println(corVerde + linha + "\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  1- Cadastrar Produto | 2- Cadastrar Cliente           \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  3- Listar Clientes   | 4- Listar Produtos             \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  5- Ver cliente       | 6- Efetuar compra de produto   \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  7- Editar Cliente    | 8- Editar Produto              \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  9- Excluir Produto   | 10- Excluir Cliente            \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  0- Sair                                               \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m1- Cadastrar Produto | 2- Cadastrar Cliente           \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m3- Listar Clientes   | 4- Listar Produtos             \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m5- Ver cliente       | 6- Efetuar compra de produto   \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m7- Editar Cliente    | 8- Editar Produto              \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m9- Excluir Produto   | 10- Excluir Cliente            \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m0- Sair                                               \u001B[32m|\u001B[0m");
         int i = 10;
         System.out.println(corVerde + linha + "\u001B[0m");
         while (i != 0) {
@@ -179,6 +187,7 @@ public class Menu {
         for (int n = 0;n<clientes.size();n++){
             System.out.println("\u001B[32m|\u001B[0m\u001b[34mNome: " + clientes.get(n).getNome());
             Cliente.identificarDocumento(clientes.get(n).getTipo());
+            System.out.println(corVerde + linha + "\u001B[0m");
         }
     }
 
@@ -213,11 +222,17 @@ public class Menu {
         String documento = scanner.next();
         for (int i = 0; i<clientes.size();i++){
             if(documento.equals(clientes.get(i).getDocumento())){
-                System.out.println("Nome: " + clientes.get(i).getNome());
-                System.out.println("Saldo: " + clientes.get(i).getSaldo());
+                System.out.println("\u001B[32m|\u001B[0m\u001b[34mNome: " + clientes.get(i).getNome());
+                System.out.println("\u001B[32m|\u001B[0m\u001b[34mSaldo: " + clientes.get(i).getSaldo());
                 Cliente.identificarDocumento(clientes.get(i).getTipo());
+                if (clientes.get(i).getProdutosComprados().size() > 0){
+                    for (int n =0;n<clientes.get(0).getProdutosComprados().size();n++){
+                        System.out.println("\u001B[32m|\u001B[0m\u001b[35mProdutos: " + clientes.get(i).getProdutosComprados().get(n));
+                    }
+                }
             }
         }
+        System.out.println("\u001B[32m|\u001B[0m--------------------------------------------------------\u001B[32m|\u001B[0m");
     }
 
     /*
@@ -239,6 +254,7 @@ public class Menu {
                 for (int x = 0; x < clientes.size(); x++){
                     if (documentoCliente.equals(clientes.get(x).getDocumento())){
                         comprarProduto(quantidadeProduto,produtos.get(i).getPreco(),produtos.get(i),clientes.get(x));
+                        clientes.get(x).setProdutosComprados(produtos.get(i).getNome());
                     }
                 }
             }
