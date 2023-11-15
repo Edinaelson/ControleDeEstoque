@@ -123,15 +123,21 @@ public class Menu {
 
     public void cadastrarProduto(){
         System.out.println("Cadastro de Produtos");
+
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Informe nome: ");
         String nome = scanner.nextLine();
+
         System.out.println("Informe código: ");
         int codigo = scanner.nextInt();
+
         System.out.println("Informe quantidade: ");
         int quantidade = scanner.nextInt();
+
         System.out.println("Informe preço: ");
         double preco = scanner.nextDouble();
+
         Produto produto = new Produto(nome,codigo,quantidade,preco);
         produtos.add(produto);
         System.out.println("Cadastrado com sucesso!");
@@ -241,20 +247,38 @@ public class Menu {
     * */
     public void efetuarCompra() throws ProdInsuficiente {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Comprar produto: ");
-        System.out.println("Informe quantidade");
-        int quantidadeProduto = scanner.nextInt();
         System.out.println("Informe código do produto: ");
         int codigoProduto = scanner.nextInt();
-        System.out.println("Informe documento do cliente cpf/cnpj");
-        String documentoCliente = scanner.next();
 
         for (int i = 0;i<produtos.size();i++){
             if (codigoProduto == produtos.get(i).getCodigo()){
-                for (int x = 0; x < clientes.size(); x++){
-                    if (documentoCliente.equals(clientes.get(x).getDocumento())){
-                        comprarProduto(quantidadeProduto,produtos.get(i).getPreco(),produtos.get(i),clientes.get(x));
-                        clientes.get(x).setProdutosComprados(produtos.get(i).getNome());
+                System.out.println("Nome: " + produtos.get(i).getNome());
+                System.out.println("Quantidade: " + produtos.get(i).getQuantidade());
+
+                System.out.println("Informe quantidade");
+                int quantidadeProduto = scanner.nextInt();
+                try {
+                    if (quantidadeProduto > produtos.get(i).getQuantidade()){
+                        throw new ProdInsuficiente();
+                    }
+                }catch (ProdInsuficiente e){
+                    System.out.println(e.getMessage());
+                    break;
+                }
+
+                System.out.println("Informe documento do cliente cpf/cnpj");
+                String documentoCliente = scanner.next();
+
+                for (int interar = 0;interar<produtos.size();interar++){
+                    if (codigoProduto == produtos.get(interar).getCodigo()){
+                        for (int x = 0; x < clientes.size(); x++){
+                            if (documentoCliente.equals(clientes.get(x).getDocumento())){
+                                comprarProduto(quantidadeProduto,produtos.get(interar).getPreco(),produtos.get(interar),clientes.get(x));
+                                clientes.get(x).setProdutosComprados(produtos.get(interar).getNome());
+                            }
+                        }
                     }
                 }
             }
