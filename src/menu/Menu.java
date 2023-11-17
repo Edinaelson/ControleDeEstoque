@@ -22,6 +22,17 @@ public class Menu {
     private String corVerde = "\u001B[32m";
     private String linha = "|--------------------------------------------------------|";
 
+    public void menuLista(){
+        System.out.println(corVerde + linha + "\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m1- Cadastrar Produto | 2- Cadastrar Cliente           \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m3- Listar Clientes   | 4- Listar Produtos             \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m5- Ver cliente       | 6- Efetuar compra de produto   \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m7- Editar Cliente    | 8- Editar Produto              \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m9- Excluir Produto   | 10- Excluir Cliente            \u001B[32m|\u001B[0m");
+        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m0- Sair                                               \u001B[32m|\u001B[0m");
+        System.out.println(corVerde + linha + "\u001B[0m");
+    }
+
     public void menu() throws Exception {
 
         //Lista de clientes cadastrados no sistema
@@ -58,16 +69,8 @@ public class Menu {
         //Fim Povoamento
 
         Scanner scanner = new Scanner(System.in);
-        //System.out.println("|--------------------------------------------------------|");
-        System.out.println(corVerde + linha + "\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m1- Cadastrar Produto | 2- Cadastrar Cliente           \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m3- Listar Clientes   | 4- Listar Produtos             \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m5- Ver cliente       | 6- Efetuar compra de produto   \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m7- Editar Cliente    | 8- Editar Produto              \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m9- Excluir Produto   | 10- Excluir Cliente            \u001B[32m|\u001B[0m");
-        System.out.println("\u001B[32m|\u001B[0m  \u001b[1m0- Sair                                               \u001B[32m|\u001B[0m");
+        menuLista();
         int i = 10;
-        System.out.println(corVerde + linha + "\u001B[0m");
         while (i != 0) {
             System.out.println("Informe opção: ");
             i = scanner.nextInt();
@@ -112,6 +115,12 @@ public class Menu {
                     excluirCliente();
                     break;
                 }
+                case 0: {
+                    System.out.println("Saindo...");
+                }
+            }
+            if ( i!= 0){
+                menuLista();
             }
         }
         scanner.close();
